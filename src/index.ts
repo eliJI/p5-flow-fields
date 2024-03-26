@@ -2,7 +2,7 @@ import P5 from 'p5'
 
 const main = document.getElementById('main');
 let grid: number[][] = [];
-const RESOLUTION = 0.05//0.1;
+const RESOLUTION = 0.1//0.1;
 
 const sketch = (p5: P5) => {
     p5.setup = function() {
@@ -11,8 +11,8 @@ const sketch = (p5: P5) => {
         let width = document.documentElement.scrollWidth;
         let height = document.documentElement.clientHeight;
 
-        let numCols:number = width/1 * RESOLUTION;
-        let numRows:number = height/1 * RESOLUTION;
+        let numCols:number = width/2 * RESOLUTION;
+        let numRows:number = height/2 * RESOLUTION;
         p5.createCanvas(width, height);
 
         for (let i = 0; i < numRows; i++) {
@@ -32,7 +32,7 @@ const sketch = (p5: P5) => {
         for (let i = 0; i < grid.length; i++) {
             for (let j = 0; j < grid[0].length; j++) {
                 p5.translate(j/RESOLUTION,i/RESOLUTION)
-                let ellipse = p5.ellipse(0, 0,5,5);
+                let ellipse = p5.ellipse(5, 5,5,5);
                 p5.translate(-(j/RESOLUTION),-(i/RESOLUTION))
               //ellipse.translate(j/RESOLUTION,i/RESOLUTION)
             
